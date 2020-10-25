@@ -33,7 +33,9 @@ function newWindow(path) {
     show: false,
     webPreferences: {
       nodeIntegration: true,
-      zoomFactor: setting.get('app.zoom_factor')
+      nodeIntegrationInSubFrames: true,
+      zoomFactor: setting.get('app.zoom_factor'),
+      webSecurity: false
     }
   })
 
@@ -186,6 +188,8 @@ async function checkForUpdates({showFailDialogs = false} = {}) {
 
 async function main() {
   app.allowRendererProcessReuse = true
+  app.commandLine.appendSwitch('disable-web-security')
+  app.commandLine.appendSwitch('disable-site-isolation-trials')
 
   if (!setting.get('app.enable_hardware_acceleration')) {
     app.disableHardwareAcceleration()
@@ -195,6 +199,9 @@ async function main() {
     session.defaultSession.webRequest.onBeforeSendHeaders(
       (details, callback) => {
         details.requestHeaders['User-Agent'] = userAgent
+        details.requestHeaders['Origin'] = null
+        details.headers && (details.headers['Origin'] = null)
+
         callback({cancel: false, requestHeaders: details.requestHeaders})
       }
     )
