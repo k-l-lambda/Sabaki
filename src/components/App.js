@@ -370,7 +370,7 @@ class App extends Component {
         id: 'mainlayout',
 
         invert: true,
-        sideSize: state.pvpSiteSize,
+        sideSize: state.showPvpSite ? state.pvpSiteSize : 0,
 
         sideContent: h(LankeSite),
         mainContent: h(TripleSplitContainer, {

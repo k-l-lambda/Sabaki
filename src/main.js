@@ -26,6 +26,8 @@ function newWindow(path) {
     }
   })
 
+  if (setting.get('debug.dev_tools')) window.webContents.openDevTools()
+
   windows.push(window)
   buildMenu()
 

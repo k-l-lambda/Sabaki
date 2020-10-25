@@ -76,6 +76,7 @@ class Sabaki extends EventEmitter {
       showLeftSidebar: setting.get('view.show_leftsidebar'),
       leftSidebarWidth: setting.get('view.leftsidebar_width'),
       showWinrateGraph: setting.get('view.show_winrategraph'),
+      showPvpSite: setting.get('view.show_pvpsite'),
       showGameGraph: setting.get('view.show_graph'),
       showCommentBox: setting.get('view.show_comments'),
       sidebarWidth: setting.get('view.sidebar_width'),

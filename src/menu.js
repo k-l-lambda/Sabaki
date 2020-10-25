@@ -28,6 +28,7 @@ exports.get = function(props = {}) {
     showMoveColorization,
     showNextMoves,
     showSiblings,
+    showPvpSite,
     showWinrateGraph,
     showGameGraph,
     showCommentBox,
@@ -654,6 +655,17 @@ exports.get = function(props = {}) {
           ]
         },
         {type: 'separator'},
+        {
+          label: i18n.t('menu.view', 'Show PvP Site'),
+          type: 'checkbox',
+          checked: !showPvpSite,
+          click: () => {
+            toggleSetting('view.show_pvpsite')
+            sabaki.setState(({showPvpSite}) => ({
+              showPvpSite: !showPvpSite
+            }))
+          }
+        },
         {
           label: i18n.t('menu.view', 'Show &Winrate Graph'),
           type: 'checkbox',
