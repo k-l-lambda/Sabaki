@@ -204,6 +204,7 @@ let defaults = {
   'view.show_winrategraph': true,
   'view.sidebar_width': 200,
   'view.sidebar_minwidth': 100,
+  'view.pvpsite_size': 400,
   'view.winrategraph_blunderthreshold': 5,
   'view.winrategraph_height': 90,
   'view.winrategraph_minheight': 30,

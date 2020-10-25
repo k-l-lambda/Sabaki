@@ -6,6 +6,7 @@ import fixPath from 'fix-path'
 import influence from '@sabaki/influence'
 
 import TripleSplitContainer from './helpers/TripleSplitContainer.js'
+import SplitContainer from './helpers/SplitContainer.js'
 import ThemeManager from './ThemeManager.js'
 import MainMenu from './MainMenu.js'
 import MainView from './MainView.js'
@@ -15,6 +16,7 @@ import DrawerManager from './DrawerManager.js'
 import InputBox from './InputBox.js'
 import BusyScreen from './BusyScreen.js'
 import InfoOverlay from './InfoOverlay.js'
+import LankeSite from './pvpSites/lanke.js'
 
 import i18n from '../i18n.js'
 import sabaki from '../modules/sabaki.js'
@@ -45,6 +47,9 @@ class App extends Component {
     let bind = f => f.bind(this)
     this.handleMainLayoutSplitChange = bind(this.handleMainLayoutSplitChange)
     this.handleMainLayoutSplitFinish = bind(this.handleMainLayoutSplitFinish)
+    this.handleExternMainLayoutSplitChange = bind(
+      this.handleExternMainLayoutSplitChange
+    )
   }
 
   componentDidMount() {
@@ -286,10 +291,20 @@ class App extends Component {
     )
   }
 
+  handleExternMainLayoutSplitChange({sideSize}) {
+    sabaki.setState(
+      () => ({
+        pvpSiteSize: sideSize
+      }),
+      () => window.dispatchEvent(new Event('resize'))
+    )
+  }
+
   handleMainLayoutSplitFinish() {
     setting
       .set('view.sidebar_width', this.state.sidebarWidth)
       .set('view.leftsidebar_width', this.state.leftSidebarWidth)
+      .set('view.pvpsite_size', this.state.pvpSiteSize)
   }
 
   // Render
@@ -351,17 +366,26 @@ class App extends Component {
         engineGameOngoing: state.engineGameOngoing
       }),
 
-      h(TripleSplitContainer, {
+      h(SplitContainer, {
         id: 'mainlayout',
 
-        beginSideSize: state.showLeftSidebar ? state.leftSidebarWidth : 0,
-        endSideSize: state.showSidebar ? state.sidebarWidth : 0,
+        invert: true,
+        sideSize: state.pvpSiteSize,
 
-        beginSideContent: h(LeftSidebar, state),
-        mainContent: h(MainView, state),
-        endSideContent: h(Sidebar, state),
+        sideContent: h(LankeSite),
+        mainContent: h(TripleSplitContainer, {
+          beginSideSize: state.showLeftSidebar ? state.leftSidebarWidth : 0,
+          endSideSize: state.showSidebar ? state.sidebarWidth : 0,
 
-        onChange: this.handleMainLayoutSplitChange,
+          beginSideContent: h(LeftSidebar, state),
+          mainContent: h(MainView, state),
+          endSideContent: h(Sidebar, state),
+
+          onChange: this.handleMainLayoutSplitChange,
+          onFinish: this.handleMainLayoutSplitFinish
+        }),
+
+        onChange: this.handleExternMainLayoutSplitChange,
         onFinish: this.handleMainLayoutSplitFinish
       }),
 

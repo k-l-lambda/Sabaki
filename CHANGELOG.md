@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 **Added**
 
+- App.js: added component of pvp site.
+
 - main.js: fake userAgent added.
 
 ## [Sabaki v0.51.1][v0.51.1] (2020-04-12)

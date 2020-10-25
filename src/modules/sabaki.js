@@ -79,6 +79,7 @@ class Sabaki extends EventEmitter {
       showGameGraph: setting.get('view.show_graph'),
       showCommentBox: setting.get('view.show_comments'),
       sidebarWidth: setting.get('view.sidebar_width'),
+      pvpSiteSize: setting.get('view.pvpsite_size'),
       graphGridSize: null,
       graphNodeSize: null,
 
