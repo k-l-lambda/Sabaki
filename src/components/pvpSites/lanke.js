@@ -4,7 +4,8 @@ import classNames from 'classnames'
 export default class LankeSite extends Component {
   render() {
     return h('iframe', {
-      class: classNames({'pvp-site': true})
+      class: classNames({'pvp-site': true}),
+      src: 'https://www.lanke.cc/'
     })
   }
 }

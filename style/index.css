@@ -1420,6 +1420,11 @@ header {
     left: 2px;
 }
 
+.pvp-site {
+	width: 100%;
+	height: 100%;
+}
+
 
 /* Override Shudan styles */
 

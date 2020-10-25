@@ -1,4 +1,12 @@
-const {app, shell, dialog, ipcMain, BrowserWindow, Menu} = require('electron')
+const {
+  app,
+  shell,
+  dialog,
+  ipcMain,
+  BrowserWindow,
+  Menu,
+  session
+} = require('electron')
 const {resolve} = require('path')
 const i18n = require('./i18n')
 const setting = require('./setting')
@@ -6,6 +14,9 @@ const updater = require('./updater')
 
 let windows = []
 let openfile = null
+
+const userAgent =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
 
 function newWindow(path) {
   let window = new BrowserWindow({
@@ -54,8 +65,7 @@ function newWindow(path) {
 
   window.webContents.audioMuted = !setting.get('sound.enable')
 
-  window.webContents.userAgent =
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
+  window.webContents.userAgent = userAgent
 
   window.webContents.on('did-finish-load', () => {
     if (path) window.webContents.send('load-file', path)
@@ -180,6 +190,15 @@ async function main() {
   if (!setting.get('app.enable_hardware_acceleration')) {
     app.disableHardwareAcceleration()
   }
+
+  app.on('ready', () => {
+    session.defaultSession.webRequest.onBeforeSendHeaders(
+      (details, callback) => {
+        details.requestHeaders['User-Agent'] = userAgent
+        callback({cancel: false, requestHeaders: details.requestHeaders})
+      }
+    )
+  })
 
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
