@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Sabaki develop](2020-10-25)
+
+**Added**
+
+- main.js: fake userAgent added.
+
 ## [Sabaki v0.51.1][v0.51.1] (2020-04-12)
 
 **Added**

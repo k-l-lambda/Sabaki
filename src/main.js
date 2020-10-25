@@ -52,6 +52,9 @@ function newWindow(path) {
 
   window.webContents.audioMuted = !setting.get('sound.enable')
 
+  window.webContents.userAgent =
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
+
   window.webContents.on('did-finish-load', () => {
     if (path) window.webContents.send('load-file', path)
   })

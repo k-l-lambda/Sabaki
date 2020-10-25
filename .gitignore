@@ -9,3 +9,8 @@ package-lock.json
 
 *.pdn
 *.vbs
+
+yarn.lock
+
+/.vscode/
+*.code-workspace
