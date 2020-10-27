@@ -38,6 +38,9 @@ class App extends Component {
   constructor(props) {
     super(props)
 
+    // save for debug
+    window.sabaki = sabaki
+
     this.state = sabaki.state
 
     sabaki.on('change', ({change, callback}) => {
