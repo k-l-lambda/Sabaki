@@ -35,7 +35,8 @@ function newWindow(path) {
       nodeIntegration: true,
       nodeIntegrationInSubFrames: true,
       zoomFactor: setting.get('app.zoom_factor'),
-      webSecurity: false
+      webSecurity: false,
+      webviewTag: true
     }
   })
 
