@@ -83,11 +83,16 @@ export default class LankeSite extends Component {
 
       sabaki.clickVertex([move.x, move.y], {button: move.isBlack ? 0 : 2})
     }
+
+    sabaki.setMode('play')
   }
 
   gameMove(move) {
     //console.log('gameMove:', data)
-    sabaki.clickVertex([move.x, move.y], {button: move.isBlack ? 0 : 2})
+    if (sabaki.currentPlayer > 0 != move.isBlack)
+      sabaki.setPlayer(sabaki.state.treePosition, move.isBlack ? 1 : -1)
+
+    sabaki.clickVertex([move.x, move.y])
   }
 }
 
