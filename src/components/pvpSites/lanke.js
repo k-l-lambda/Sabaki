@@ -34,6 +34,17 @@ export default class LankeSite extends Component {
             }
 
             break
+          case 'Network.webSocketFrameSent':
+            //console.log('webSocketFrameSent:', method, params)
+            {
+              const json = params.response.payloadData.replace(/^\d+/, '')
+              if (json) {
+                const data = JSON.parse(json)
+                if (data[0] === 'gameMove') this.gameMove(data[1].qz)
+              }
+            }
+
+            break
           case 'Network.dataReceived':
             //console.log('dataReceived:', event, params)
             if (params.requestId === this.roomRequestId) {
@@ -89,7 +100,7 @@ export default class LankeSite extends Component {
 
   gameMove(move) {
     //console.log('gameMove:', data)
-    if (sabaki.currentPlayer > 0 != move.isBlack)
+    if (sabaki.currentPlayer > 0 != !!move.isBlack)
       sabaki.setPlayer(sabaki.state.treePosition, move.isBlack ? 1 : -1)
 
     sabaki.clickVertex([move.x, move.y])
