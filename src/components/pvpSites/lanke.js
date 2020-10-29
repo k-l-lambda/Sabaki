@@ -84,18 +84,19 @@ export default class LankeSite extends Component {
   }
 
   async setBoardState(moves) {
-    //console.log('setBoardState:', data)
+    //console.log('setBoardState:', moves.length, moves)
 
     await sabaki.newFile({suppressAskForSave: true})
-    sabaki.setMode('edit')
+    //sabaki.setMode('edit')
 
     for (let move of moves) {
       move = JSON.parse(move)
 
-      sabaki.clickVertex([move.x, move.y], {button: move.isBlack ? 0 : 2})
+      sabaki.clickVertex([move.x, move.y])
+      //console.log('move:', move)
     }
 
-    sabaki.setMode('play')
+    //sabaki.setMode('play')
   }
 
   gameMove(move) {
