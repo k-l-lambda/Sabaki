@@ -6,7 +6,7 @@ export default class LankeSite extends Component {
   componentDidMount() {
     this.base.addEventListener('dom-ready', () => {
       if (this.debuggerAttached) return
-      console.log('lanke.dom-ready', this, this.base, this.base.getWebContents)
+      //console.log('lanke.dom-ready', this, this.base, this.base.getWebContents)
       //this.base.openDevTools()
 
       const debug = remote.webContents.fromId(this.base.getWebContentsId())
@@ -107,11 +107,3 @@ export default class LankeSite extends Component {
     sabaki.clickVertex([move.x, move.y])
   }
 }
-
-/*
-sabaki.newFile({suppressAskForSave: true})
-sabaki.setMode('play')
-sabaki.setMode('edit')
-sabaki.clickVertex([4,9], {button: 2})
-sabaki.clickVertex([4,9], {button: 0})
-*/

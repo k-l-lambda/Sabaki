@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Sabaki develop](2020-10-31)
+
+**Added**
+
+- menu.js: added accelerator for board.show_analysis.
+
 ## [Sabaki develop](2020-10-25)
 
 **Added**
