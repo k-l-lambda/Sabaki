@@ -151,6 +151,12 @@ exports.get = function(props = {}) {
         },
         {type: 'separator'},
         {
+          label: i18n.t('menu.play', 'Move by Analysis'),
+          accelerator: 'Space',
+          click: () => sabaki.moveByAnalysis()
+        },
+        {type: 'separator'},
+        {
           label: i18n.t('menu.play', '&Estimate'),
           accelerator: 'CmdOrCtrl+Shift+E',
           click: () =>

@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 **Added**
 
+- A shortcut for game move by best point from analysis.
+
 - menu.js: added accelerator for board.show_analysis.
 
 ## [Sabaki develop](2020-10-25)
