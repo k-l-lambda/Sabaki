@@ -62,6 +62,20 @@ export default class MainView extends Component {
 
   handleGobanVertexClick(evt) {
     sabaki.clickVertex(evt.vertex, evt)
+
+    //console.log('handleGobanVertexClick:', evt, this.props)
+    const analysis = this.props.analysis
+    if (analysis) {
+      const variation = analysis.variations.find(
+        v => v.vertex[0] === evt.vertex[0] && v.vertex[1] === evt.vertex[1]
+      )
+      console.log(
+        'analysis:',
+        evt.vertex,
+        variation && variation.scoreLead,
+        variation && variation.winrate
+      )
+    }
   }
 
   handleGobanLineDraw(evt) {
