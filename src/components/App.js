@@ -362,6 +362,7 @@ class App extends Component {
         showMoveColorization: state.showMoveColorization,
         showNextMoves: state.showNextMoves,
         showSiblings: state.showSiblings,
+        showPvpSite: state.showPvpSite,
         showWinrateGraph: state.showWinrateGraph,
         showGameGraph: state.showGameGraph,
         showCommentBox: state.showCommentBox,

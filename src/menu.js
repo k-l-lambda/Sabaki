@@ -658,7 +658,7 @@ exports.get = function(props = {}) {
         {
           label: i18n.t('menu.view', 'Show PvP Site'),
           type: 'checkbox',
-          checked: showPvpSite,
+          checked: !!showPvpSite,
           click: () => {
             toggleSetting('view.show_pvpsite')
             sabaki.setState(({showPvpSite}) => ({
