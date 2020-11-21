@@ -9,6 +9,7 @@ package-lock.json
 
 *.pdn
 *.vbs
+*.lnk
 
 yarn.lock
 

@@ -106,6 +106,7 @@ export default class MainView extends Component {
       highlightVertices,
       analysisType,
       showAnalysis,
+      weekAnalyser,
       showCoordinates,
       showMoveColorization,
       showMoveNumbers,
@@ -164,6 +165,7 @@ export default class MainView extends Component {
             : [],
 
           crosshair: gobanCrosshair,
+          weekanalyser: weekAnalyser,
           showCoordinates,
           showMoveColorization,
           showMoveNumbers: mode !== 'edit' && showMoveNumbers,

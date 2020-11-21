@@ -224,6 +224,7 @@ export default class Goban extends Component {
       dimmedStones = [],
 
       crosshair = false,
+      weekanalyser = false,
       showCoordinates = false,
       showMoveColorization = true,
       showMoveNumbers = false,
@@ -450,7 +451,7 @@ export default class Goban extends Component {
 
     return h(BoundedGoban, {
       id: 'goban',
-      class: classNames({crosshair}),
+      class: classNames({crosshair, weekanalyser}),
       style: {top, left},
       innerProps: {ref: el => (this.element = el)},
 

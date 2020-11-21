@@ -340,6 +340,9 @@ class App extends Component {
 
     state = {...state, ...inferredState, scoreBoard, areaMap}
 
+    console.log('weekAnalyser:', state.weekAnalyser)
+    console.log('showAnalysis:', state.showAnalysis)
+
     return h(
       'section',
       {
@@ -356,6 +359,7 @@ class App extends Component {
         disableAll: state.busy > 0,
         analysisType: state.analysisType,
         showAnalysis: state.showAnalysis,
+        weekAnalyser: state.weekAnalyser,
         showCoordinates: state.showCoordinates,
         coordinatesType: state.coordinatesType,
         showMoveNumbers: state.showMoveNumbers,

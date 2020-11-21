@@ -22,6 +22,7 @@ exports.get = function(props = {}) {
     disableGameLoading,
     analysisType,
     showAnalysis,
+    weekAnalyser,
     showCoordinates,
     coordinatesType,
     showMoveNumbers,
@@ -639,6 +640,13 @@ exports.get = function(props = {}) {
               checked: !showAnalysis,
               accelerator: '`',
               click: () => toggleSetting('board.show_analysis')
+            },
+            {
+              label: i18n.t('menu.view', '&Week Analyser'),
+              type: 'checkbox',
+              checked: !!weekAnalyser,
+              //accelerator: '`',
+              click: () => toggleSetting('board.week_analyser')
             },
             {type: 'separator'},
             {

@@ -48,6 +48,7 @@ let defaults = {
   'board.analysis_interval': 50,
   'board.analysis_type': 'winrate',
   'board.show_analysis': true,
+  'board.week_analyser': false,
   'board.variation_replay_mode': 'move_by_move',
   'board.variation_replay_interval': 500,
   'cleanmarkup.annotations': false,
