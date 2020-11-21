@@ -645,7 +645,7 @@ exports.get = function(props = {}) {
               label: i18n.t('menu.view', '&Week Analyser'),
               type: 'checkbox',
               checked: !!weekAnalyser,
-              //accelerator: '`',
+              accelerator: '1',
               click: () => toggleSetting('board.week_analyser')
             },
             {type: 'separator'},

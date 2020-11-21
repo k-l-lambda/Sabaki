@@ -278,3 +278,11 @@ form p, form ul li {
   cursor: default;
   text-decoration: none;
 }
+
+#goban.weekanalyser .shudan-heat {
+    filter: grayscale(100%);
+    box-shadow: 0 0 1em .75em #4886D5;
+}
+#goban.weekanalyser .shudan-heatlabel {
+    visibility: hidden;
+}
