@@ -2890,13 +2890,23 @@ class Sabaki extends EventEmitter {
     )
   }
 
-  moveByAnalysis() {
+  moveByAnalysis({mercy = true} = {}) {
     if (this.state.analysis) {
-      const best = this.state.analysis.variations.reduce(
-        (best, variation) =>
-          !best || variation.winrate > best.winrate ? variation : best,
-        null
+      const maxWinrate = v => v.winrate
+      const minLead = v =>
+        v.scoreLead === 0
+          ? Infinity
+          : v.scoreLead > 0
+          ? 1 / v.scoreLead
+          : v.scoreLead
+
+      const loss = mercy ? minLead : maxWinrate
+
+      const sortedVariations = [...this.state.analysis.variations].sort(
+        (v1, v2) => loss(v2) - loss(v1)
       )
+      const best = sortedVariations[0]
+      //console.log('sortedVariations:', sortedVariations)
 
       if (best) this.clickVertex(best.vertex)
     }

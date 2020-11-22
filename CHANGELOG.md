@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Sabaki develop](2020-11-22)
+
+**Added**
+
+- Mercy move by analysis.
+
+- Week analyser view.
+
 ## [Sabaki develop](2020-10-31)
 
 **Added**
