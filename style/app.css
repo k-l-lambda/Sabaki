@@ -282,15 +282,15 @@ form p, form ul li {
 #goban.weekanalyser .shudan-heat {
     filter: grayscale(100%);
 }
-#goban.weekanalyser .shudan-heat_9 .shudan-heat, #goban.weekanalyser .shudan-heat_8 .shudan-heat, #goban.weekanalyser .shudan-heat_7 .shudan-heat, #goban.weekanalyser .shudan-heat_6 .shudan-heat, #goban.weekanalyser .shudan-heat_5 .shudan-heat {
+#goban.weekanalyser .shudan-heat_9 .shudan-heat, #goban.weekanalyser .shudan-heat_8 .shudan-heat, #goban.weekanalyser .shudan-heat_7 .shudan-heat, #goban.weekanalyser .shudan-heat_6 .shudan-heat, #goban.weekanalyser .shudan-heat_5 .shudan-heat, #goban.weekanalyser .shudan-heat_4 .shudan-heat {
     box-shadow: 0 0 1em .75em #4886D5;
     opacity: .8;
 }
-#goban.weekanalyser .shudan-heat_4 .shudan-heat, #goban.weekanalyser .shudan-heat_3 .shudan-heat {
+#goban.weekanalyser .shudan-heat_3 .shudan-heat, #goban.weekanalyser .shudan-heat_2 .shudan-heat {
     box-shadow: 0 0 1em .6em #4886D5;
     opacity: .6;
 }
-#goban.weekanalyser .shudan-heat_2 .shudan-heat, #goban.weekanalyser .shudan-heat_1 .shudan-heat {
+#goban.weekanalyser .shudan-heat_1 .shudan-heat {
     box-shadow: 0 0 1em .4em #4886D5;
     opacity: .4;
 }
